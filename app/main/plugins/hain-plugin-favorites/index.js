@@ -50,10 +50,9 @@ module.exports = (context) => {
 
   function parseFavoriteForIndexer(query) {
     const search = query.toUpperCase();
-    return {
-        group: 'Favorite',
-        ...favorites.filter(favorite => favorite.key === search)
-    };
+    return favorites
+        .filter(favorite => favorite.key === search)
+        .map(favorite => Object.assign({}, favorite, { group: 'Favorite' }));
   }
 
   function execute(id) {
