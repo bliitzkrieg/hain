@@ -1,7 +1,5 @@
 'use strict';
 
-const lo_first = require('lodash.first');
-
 module.exports = (context) => {
   const shell = context.shell;
   const app = context.app;
@@ -52,10 +50,13 @@ module.exports = (context) => {
 
   function parseFavoriteForIndexer(query) {
     const search = query.toUpperCase();
-    return favorites.filter(favorite => favorite.key === search);
+    return {
+        group: 'Favorite',
+        ...favorites.filter(favorite => favorite.key === search)
+    };
   }
 
-  function execute(id, payload, extra) {
+  function execute(id) {
     const protocol_re = /https?:\/\//i;
     let url = id;
     if (protocol_re.test(url) === false) {
