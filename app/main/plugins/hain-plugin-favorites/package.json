@@ -1,0 +1,12 @@
+{
+  "name": "hain-plugin-favorites",
+  "description": "a custom plugin to quickly open favorite sites",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Luca DeCaprio <lucamatthewdecaprio@gmail.com>",
+  "license": "MIT",
+  "hain": {
+    "usage": "type special keywords to open favorite sites",
+    "icon": "#fa fa-star"
+  }
+}
